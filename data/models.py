@@ -8,7 +8,7 @@ class Magzin(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     image = models.ImageField(upload_to='', null=True, blank=True)
-    pagenumner = models.IntegerField()
+    pagenumber = models.IntegerField()
     button = models.URLField('/')
     published_date = models.DateTimeField(blank=True, null=True)
 
