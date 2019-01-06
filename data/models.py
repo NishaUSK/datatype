@@ -4,13 +4,17 @@ from django.utils import timezone
 
 
 class Magzin(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
-    image = models.ImageField(upload_to='', null=True, blank=True)
-    pagenumber = models.IntegerField()
-    button = models.URLField('/')
-    published_date = models.DateTimeField(blank=True, null=True)
+    author          =   models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    title           =   models.CharField(max_length=200)
+    text            =   models.TextField()
+    image           =   models.ImageField(upload_to='', null=True, blank=True)
+    pagenumber      =   models.IntegerField()
+    button          =   models.URLField('/')
+    created_date    =   models.DateTimeField(default=timezone.now)
+    published_date  =   models.DateTimeField(blank=True, null=True)
+    File            =   models.FileField(upload_to='', max_length=100, null=True, blank=True)
+    
+
 
     def publish(self):
         self.published_date = timezone.now()
